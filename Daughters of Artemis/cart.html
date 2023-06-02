@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <script src="https://kit.fontawesome.com/9d09fcb341.js" crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- <Page Title> -->
+        <title>Daughters of Artemis</title>
+
+        <!-- <Style sheet> -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <!-- <Navigation bar> -->
+        <section id="header">
+            <a href="home.html"><img src="images/logo4.png" class="logo"></a>
+            <div>
+                <ul id="navbar">
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="products.php">Products</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="loginOrReg.html"><img src="images/account.png" class=account></a></li>
+                    <li id="lg-bag"><a class="active" href="cart.html"><img src="images/bag.png" class=basket></a></li>
+                    <a href="#"><img src="images/close.png" id= "close" class="mobileNavBar"></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><img src="images/bag.png" class=basket></a>
+                <a href="#"><img src="images/menu.png" id= "bar" class="mobileNavBar"></a>
+            </div>
+        </section>
+
+        <!-- <Page Header> -->
+        <section id="page-header">
+            <h2>#YourCart</h2>
+        </section>
+
+        <section id="cart" class="section-p1">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody id="cart-items-container">
+                    <tr>
+                    </tr>
+                </tbody>
+                <tfoot>
+                </tfoot>
+                </table>
+                <button class="normal">Checkout</button><br>
+                <br>
+                <div class="banking-details">
+                  <p>Banking Details: xxxxxxxx</p>
+                  <p>Once payment is received, your order will be shipped</p>
+                </div>
+        </section>
+
+        <!-- <CTA sign up for newsletter> -->
+            <section id="newsletter" class="section-p1">
+                <div class="newstext">
+                    <h4>Have you signed up for our newsletter yet?</h4>
+                    <p>Sign up now to enjoy exclusive <span>discounts</span></p>
+                </div>
+                <form class="newsletter" name="news" action="newsletter.php" method="post">
+                    <input type="text" name="email" placeholder="Please enter your email address" required>
+                    <button type="submit" class="normal" name="newsletter">SIGN ME UP</button>
+                </form>
+            </section>
+
+        <!-- <Page Footer> -->
+        <footer class="section-p1">
+            <div class="col">
+                <img  class="logo" src="images/logo.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> 15c Benacre Lane, Longlake ext 6, Lethabong</p>
+                <p><strong>Phone:</strong> 0718783138</p>
+                <div class="social">
+                    <h4>Follow us</h4>
+                    <!-- <Social Media Links -->
+                    <div class="icons">
+                        <a href="#"><img src="images/facebook.png" class="social" alt=""></a>
+                        <a href="#"><img src="images/instagram.png" class="social" alt=""></a>
+                        <a href="#"><img src="images/twitter.png" class="social" alt=""></a>
+                        <a href="#"><img src="images/tiktok.png" class="social" alt=""></a>
+                        <a href="#"><img src="images/youtube.png" class="social" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <About Links> -->
+            <div class="col">
+                <h4>About</h4>
+                <a href="faq.html">Delivery infomation</a>
+                <a href="faq.html">Terms and conditions</a>
+                <a href="faq.html">FAQ's</a>
+                <a href="contact.html">Contact us</a>
+            </div>
+
+            <!-- <User Account Links> -->
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="loginOrReg.html">Sign in</a>
+                <a href="cart.html">My cart</a>
+                <a href="account.php">My Account</a>
+                <a href="contact.html">Help</a>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>

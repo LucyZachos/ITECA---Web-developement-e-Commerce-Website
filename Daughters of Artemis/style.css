@@ -165,13 +165,14 @@ body{
     margin-top: 5px;
 }
 #hero button:hover,
-#hero button.active{
-    background-color: #674071;
-}
+#hero button.active,
 #hero2 button:hover,
-#hero2 button.active{
+#hero2 button.active,
+#hero3 button:hover,
+#hero3 button.active{
     background-color: #674071;
 }
+
 
 
 /* Featured products section*/
@@ -884,3 +885,6 @@ footer  a:hover{
     color: #8474A1;
 }
 
+.form-box .normal:hover {
+    background-color: #674071;
+}

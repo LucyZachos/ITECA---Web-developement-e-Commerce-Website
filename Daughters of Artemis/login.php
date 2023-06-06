@@ -1,16 +1,15 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
   if (isset($_POST['login'])) {
 
     //connects to the MySQL database
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "artemis";
-    $link = mysqli_connect($host, $username, $password, $dbname);
+    require_once 'dbcon.php';
+
+    // Checks if the connection was successful
+    if (!$link) {
+      die("Database connection failed: " . mysqli_connect_error());
+    }
+
 
     //Retrieve the email and password
     $email = $_POST['email'];
@@ -38,12 +37,12 @@ ini_set('display_errors', 1);
 
       //If the user logs in successfully an alert is displayed and they are redirected to the home page
       echo "<script>alert('Welcome " . $firstName . " " . $lastName . "!')</script>"; 
-      header('Refresh: 0.1; url=home.php'); 
+      header('Refresh: 0.1; url=index.php'); 
       exit();
     } else { 
       //If the user logs is unsuccessful an alert is displayed and the login page will relaod for them to try again
       echo '<script>alert("Error: Please ensure you have entered the correct email address and password.")</script>'; 
-      header('Refresh: 1; url=loginOrReg.html');
+      header('Refresh: 1; url=loginOrReg.php');
       exit();
     }
   }

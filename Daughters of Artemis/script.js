@@ -49,9 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
   // Add event listeners to the cart buttons
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
   const cartButtons = document.querySelectorAll('.cart');
   cartButtons.forEach(function(button) {
     button.addEventListener('click', function() {
@@ -77,11 +76,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+//Function to add item to cart
 function addItemToCart(item) {
   let cartItems = JSON.parse(localStorage.getItem('cart-items-container')) || [];
 
   // Check if the item already exists in the cart
-  const existingItem = cartItems.find(function(cartItem) {
+  const existingItem = cartItems.find(function (cartItem) {
     return cartItem.name === item.name;
   });
 
@@ -94,7 +94,7 @@ function addItemToCart(item) {
       name: item.name,
       image: item.image,
       price: item.price,
-      quantity: 1
+      quantity: 1,
     };
     cartItems.push(cartItem);
   }
@@ -104,8 +104,9 @@ function addItemToCart(item) {
 }
 
 
+
 function displayCartItems() {
-  const cartItems = JSON.parse(localStorage.getItem('cart-items-container'));
+  let cartItems = JSON.parse(localStorage.getItem('cart-items-container')) || [];
   const tbody = document.querySelector('#cart-items-container');
   let subtotal = 0;
 
@@ -231,9 +232,13 @@ function displayCartItems() {
     tbody.appendChild(FinalTotalRow);
 
     
-  } else {
-    tbody.innerHTML = '<tr><td colspan="6">Your cart is empty.</td></tr>';
-  }
+     // Set the value of the hidden input field with the cart items
+     const cartItemsInput = document.querySelector('#cartItemsInput');
+     cartItemsInput.value = JSON.stringify(cartItems);
+ 
+   } else {
+     tbody.innerHTML = '<tr><td colspan="6">Your cart is empty.</td></tr>';
+   }
   
     // Add a line
     const lineRow = document.createElement('tr');
@@ -243,17 +248,19 @@ function displayCartItems() {
     tbody.appendChild(lineRow);
 }
 
+// Function to remove item from cart
 function removeFromCart(item) {
-  const cartItems = JSON.parse(localStorage.getItem('cart-items-container')) || [];
-  const updatedCartItems = cartItems.filter(function(cartItem) {
+  let cartItems = JSON.parse(localStorage.getItem('cart-items-container')) || [];
+  cartItems = cartItems.filter(function (cartItem) {
     return cartItem.name !== item.name;
   });
-  localStorage.setItem('cart-items-container', JSON.stringify(updatedCartItems));
+  localStorage.setItem('cart-items-container', JSON.stringify(cartItems));
   displayCartItems();
 }
 
+//Function to update cart quantity
 function updateQuantity(item, quantity) {
-  const cartItems = JSON.parse(localStorage.getItem('cart-items-container')) || [];
+  const cartItems = JSON.parse (localStorage.getItem('cart-items-container')) || [];
   const existingItemIndex = cartItems.findIndex(function(cartItem) {
     return cartItem.name === item.name;
   });
@@ -261,17 +268,18 @@ function updateQuantity(item, quantity) {
   if (existingItemIndex !== -1) {
     if (quantity >= 1) {
       cartItems[existingItemIndex].quantity = quantity;
-      localStorage.setItem('cart-items-container', JSON.stringify(cartItems));
+     localStorage.setItem('cart-items-container', JSON.stringify(cartItems));
       displayCartItems();
     } else {
       // Display a modal or custom notification to show the message
       showModal('Quantity cannot be zero. You can remove the items from your cart instead.');
       cartItems[existingItemIndex].quantity = 1;
-      localStorage.setItem('cart-items-container', JSON.stringify(cartItems));
+     localStorage.setItem('cart-items-container', JSON.stringify(cartItems));
       displayCartItems();
     }
   }
 }
+
 
 //Login/ Registration page slider function
 function register(){
@@ -292,3 +300,8 @@ function login(){
   z.style.left = "0px";
 }
 
+function clearCart() {
+  // Clear the cart items from local storage
+  localStorage.removeItem('cart-items-container');
+  sessionStorage.removeItem('cart-items-container');
+}

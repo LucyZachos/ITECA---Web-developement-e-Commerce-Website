@@ -2,12 +2,7 @@
 //checks if the registration form has been submitted
 if(isset($_POST['contact'])){
 
-    //connects to the MySQL database
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "artemis";
-    $link = mysqli_connect($host, $username, $password, $db);
+    require_once 'dbcon.php';
 
     //takes the user input from the registration form and escapes  any special characters
     $firstName = mysqli_real_escape_string($link, $_POST['firstName']);
@@ -30,7 +25,7 @@ if(isset($_POST['contact'])){
 
             if(mysqli_affected_rows($link) > 0){
             echo "<script> alert('Thank you for your query " . $firstName . "! A customer representitive will be in touch with you shortly')</script>";
-            header('Refresh: 0.1; url=contact.html'); 
+            header('Refresh: 0.1; url=contactform.php'); 
 
             }else{
             echo "<script> alert('We seem to be have a gremlin lose in the system. Please try again later once we've caught him.')</script>";

@@ -1,13 +1,7 @@
 <?php
 session_start();
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$db = "artemis";
-
-// Connects to the database
-$link = mysqli_connect($host, $username, $password, $db);
+require_once 'dbcon.php';
 
 // Checks if the connection was successful
 if (!$link) {
@@ -45,13 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function updateCustomerData($data, $email)
 {
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "artemis";
-
-    // Connects to the database
-    $link = mysqli_connect($host, $username, $password, $db);
+    require_once 'dbcon.php';
 
     // Checks if the connection was successful
     if (!$link) {
@@ -68,6 +56,7 @@ function updateCustomerData($data, $email)
 
     // Execute the update query
     if (mysqli_query($link, $query)) {
+        echo('Your account has been successfully updated.');
         // Update successful
     } else {
         echo "Error updating record: " . mysqli_error($link);
@@ -97,29 +86,8 @@ function updateCustomerData($data, $email)
 
 <body>
 
-    <!-- <Navigation bar> -->
-    <section id="header">
-            <a href="home.php"><img src="images/logo4.png" class="logo"></a>
-            <div>
-                <ul id="navbar">
-                    <li><a class="active" href="home.php">Home</a></li>
-                    <li><a href="products.php">Products</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
-                    <?php if (isset($_SESSION['email'])): ?>
-                        <li><a href="account.php">Account</a></li>
-                        <li><a href="logout.php">Logout</a></li>
-                    <?php else: ?>
-                    <li><a href="loginOrReg.html"><img src="images/account.png" class=account></a></li>
-                    <?php endif; ?>
-                    <li id="lg-bag"><a href="cart.html"><img src="images/bag.png" class=basket></a></li>
-                    <a href="#"><img src="images/close.png" id= "close" class="mobileNavBar"></a>
-                </ul>
-            </div>
-            <div id="mobile">
-                <a href="cart.html"><img src="images/bag.png" class=basket></a>
-                <a href="#"><img src="images/menu.png" id= "bar" class="mobileNavBar"></a>
-            </div>
-        </section>
+        <!-- <Navigation bar> -->
+        <?php include 'navbar.php'; ?>
         
             <!-- <Page Header> -->
             <section id="page-header">
@@ -152,40 +120,7 @@ function updateCustomerData($data, $email)
                 </form>
             </section>
           <!-- <Page Footer> -->
-          <footer class="section-p1">
-                <div class="col">
-                    <img  class="logo" src="images/logo.png" alt="">
-                    <div class="social">
-                        <h4>Follow us</h4>
-                        <!-- <Social Media Links -->
-                        <div class="icons">
-                            <a href="#"><img src="images/facebook.png" class="social" alt=""></a>
-                            <a href="#"><img src="images/instagram.png" class="social" alt=""></a>
-                            <a href="#"><img src="images/twitter.png" class="social" alt=""></a>
-                            <a href="#"><img src="images/tiktok.png" class="social" alt=""></a>
-                            <a href="#"><img src="images/youtube.png" class="social" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- <About Links> -->
-                <div class="col">
-                    <h4>About</h4>
-                    <a href="faq.html">Delivery infomation</a>
-                    <a href="faq.html">Terms and conditions</a>
-                    <a href="faq.html">FAQ's</a>
-                    <a href="contact.html">Contact us</a>
-                </div>
-    
-                <!-- <User Account Links> -->
-                <div class="col">
-                    <h4>My Account</h4>
-                    <a href="loginOrReg.html">Sign in</a>
-                    <a href="cart.html">My cart</a>
-                    <a href="account.php">My Account</a>
-                    <a href="contact.html">Help</a>
-                </div>
-            </footer>
+          <?php include 'footer.php'; ?>
                 <script src="script.js"></script>
         </body>
     </html>

@@ -1,2 +1,1 @@
-# ITECA---Web-developement-Project
-E-commerce website
+Eduvos web development e-commerce project.

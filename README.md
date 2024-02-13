@@ -2,7 +2,7 @@
 
 ### Overview
 
-Welcome to my Eduvos E-Commerce Project, a web development endeavor focused on creating an online platform for a fictional company specializing in self-defense keyrings for women, scrunchies, and budget binders. This project was undertaken as part of Eduvos's web development curriculum.
+Welcome to my Eduvos E-Commerce Project, a web development endeavor focused on creating an online platform for a fictional company specializing in self-defense keyrings for women, scrunchies, and budget binders. This project was undertaken as part of Eduvos's web development curriculum. 🛍️💻
 
 ### Demo
 [Click here to watch the demo](https://www.loom.com/share/c4b137383b2d4f6db53b0a70b76c3e41?sid=3f8517fd-9d5a-44a5-aa6a-497d200c08e0)
@@ -24,4 +24,6 @@ Additionally, the website includes administrative capabilities, allowing the own
 ### Database
 The Eduvos E-Commerce website is powered by a MySQL database, which stores essential information such as product details, and customer accounts.
 
-Thank you for exploring my Eduvos E-Commerce Web Development Project. I hope this project showcases the skills and knowledge gained through my web development journey.
+IDE: VS Code
+
+Thank you for exploring my Eduvos E-Commerce Web Development Project. I hope this project showcases the skills and knowledge gained through my web development journey. 🚀📚
